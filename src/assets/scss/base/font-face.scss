@@ -2,6 +2,16 @@
 
 @each $key, $val in $theme-fonts{
   @font-face {
+    font-family: 'Montserrat';
+    src: url('#{$montserrat-dir}/Montserrat-#{$key}.ttf') format('truetype');
+    font-weight: $val;
+    font-style: normal;
+    font-display: swap;
+  }
+}
+
+@each $key, $val in $theme-fonts{
+  @font-face {
     font-family: 'Mulish';
     src: url('#{$mulish-dir}/Mulish-#{$key}.ttf') format('truetype');
     font-weight: $val;
@@ -9,4 +19,3 @@
     font-display: swap;
   }
 }
-
