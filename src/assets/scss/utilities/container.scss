@@ -1,0 +1,21 @@
+@use '../abstratcs' as *;
+
+.container{
+  width: 100%;
+  padding-left: $gap;
+  padding-right: $gap;
+  margin-right: auto;
+  margin-left: auto;
+  //@include breakpoint('md'){
+  //  //width: calc(100% - 90px);
+  //  //max-width: calc(100% - 90px);
+  //  max-width: rem(976);
+  //}
+  @include breakpoint('xl'){
+    max-width: rem(1272) + ($gap * 2);
+  }
+  //@include breakpoint('xxl'){
+  //  max-width: rem(1400);
+  //}
+}
+

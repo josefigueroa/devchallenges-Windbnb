@@ -1,0 +1,27 @@
+@use "../abstratcs" as *;
+
+.flex{
+  @include flex-class();
+
+  &-first {
+    order: -1 !important;
+  }
+  &-last {
+    order: 1 !important;
+  }
+
+  @each $breakpoint, $width in $breakpoints-up {
+    @include breakpoint($breakpoint){
+      @include flex-class($breakpoint);
+
+      &-first-#{$breakpoint} {
+        order: -1 !important;
+      }
+      &-last-#{$breakpoint} {
+        order: 1 !important;
+      }
+    }
+  }
+}
+
+

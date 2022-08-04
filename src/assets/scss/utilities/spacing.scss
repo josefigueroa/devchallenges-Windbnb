@@ -1,0 +1,9 @@
+@use "../abstratcs" as *;
+
+@include spacing-class();
+
+@each $breakpoint, $width in $breakpoints-up {
+  @include breakpoint($breakpoint){
+    @include spacing-class($breakpoint);
+  }
+}

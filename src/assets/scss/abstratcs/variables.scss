@@ -1,0 +1,99 @@
+@use './functions' as *;
+
+//Grid options
+$gap: rem(12);
+
+//Breakpoints
+//375px, 576px, 768px, 992px, 1200px, 1440px
+$breakpoints-up: (
+        'xs': 23.4375em,
+        'sm': 36em,
+        'md': 48em,
+        'lg': 62em,
+        'xl': 75em,
+        'xxl': 90em
+);
+
+//Flex properties
+$flex-class:(
+        'justify-content': (
+                'start': 'flex-start',
+                'end': 'flex-end',
+                'center': 'center',
+                'around': 'space-around',
+                'between': 'space-between'
+        ),
+        'align-items': (
+                'top': 'flex-start',
+                'bottom': 'flex-end',
+                'middle': 'center'
+        ),
+        'align-self': (
+                'self-start': 'flex-start',
+                'self-end': 'flex-end',
+                'self-center': 'center',
+                'self-baseline': 'baseline',
+                'self-stretch': 'stretch'
+        )
+);
+
+//Spacer
+$spacer: $gap;
+$spacers: (
+        0: 0,
+        1: $spacer * 1,
+        2: $spacer * 2,
+        3: $spacer * 3,
+        4: $spacer * 4,
+        5: $spacer * 5,
+        6: $spacer * 6,
+        7: $spacer * 7,
+        8: $spacer * 8,
+        9: $spacer * 9,
+        10: $spacer * 10,
+);
+
+//Margins/Paddings properties
+$spacing-class:(
+        'm':(
+                't': 'margin-top',
+                'b': 'margin-bottom',
+                'l': 'margin-left',
+                'r': 'margin-right'
+        ),
+        'p':(
+                't': 'padding-top',
+                'b': 'padding-bottom',
+                'l': 'padding-left',
+                'r': 'padding-right'
+        )
+);
+
+//Colors
+$gray-100: #F1F1F3;
+$gray-200: #EDEDED;
+$gray-300: #E3E4E8;
+$gray-400: #D9DADE;
+$gray-500: #CBCCD1;
+
+$white: #FFF;
+
+
+$theme-color:(
+       
+);
+
+
+
+$theme-fonts: (
+        'Thin': 100,
+        'Light': 300,
+        'Regular': 400,
+        'SemiBold': 600,
+        'Bold': 700,
+        'Black': 900
+);
+
+//Fonts path
+$fonts-dir: '/assets/fonts';
+$ibm-dir: '#{$fonts-dir}/ibmPlexSans';

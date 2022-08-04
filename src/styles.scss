@@ -1,0 +1,6 @@
+@use './assets/scss/base'; //Base stuff (base, fonts, root, typography, etc)
+@use './assets/scss/vendors'; //External framework (angular material, fontawesome, etc)
+@use './assets/scss/layout'; //Layout-related sections (header, footer, grid, sidebars, form)
+@use './assets/scss/components'; //(accordions, buttons, nav-bar, carousel, cards, tables, etc)
+@use './assets/scss/pages'; //Page-specific styles (home, details, etc)
+@use './assets/scss/utilities'; //Helpers, clases & placeholders (container, flex, spacing)

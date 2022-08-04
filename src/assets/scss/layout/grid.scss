@@ -1,0 +1,31 @@
+@use '../abstratcs' as *;
+
+.flex-row{
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -#{$gap};
+  margin-left: -#{$gap};
+  row-gap: rem(24);
+  &:not(:last-child){
+    margin-bottom: rem(24);
+  }
+  &--reverse{
+    flex-direction: row-reverse;
+  }
+}
+
+.flex-col{
+  flex: 1 0 0;
+}
+
+@include grid-flex();
+
+@each $breakpoint, $width in $breakpoints-up {
+  @include breakpoint($breakpoint){
+    @include grid-flex($breakpoint);
+    .flex-col-#{$breakpoint}-auto{
+      flex: 0 0 auto;
+      width: auto;
+    }
+  }
+}
