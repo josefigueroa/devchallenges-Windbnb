@@ -5,12 +5,10 @@
   //   --color-#{$key}: #{$val};
   // }
 
-  // @each $key, $val in $theme-fonts{
-  //   $keyFormat: to-lower-case(#{$key});
-  //   --font-weight-#{$keyFormat}: #{$val};
-  // }
+  @each $key, $val in $theme-fonts{
+    $keyFormat: to-lower-case(#{$key});
+    --font-weight-#{$keyFormat}: #{$val};
+  }
 
-  // --font-family-ibm: "Ibm Flex Sans";
-  // --font-family-fontawesome: "Font Awesome";
-  // --border-radius: 10px;
+  --font-family-mulish: "Mulish";
 }

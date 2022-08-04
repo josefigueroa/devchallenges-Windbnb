@@ -86,14 +86,16 @@ $theme-color:(
 
 
 $theme-fonts: (
-        'Thin': 100,
+        'ExtraLight': 200,
         'Light': 300,
         'Regular': 400,
+        'Medium': 500,
         'SemiBold': 600,
         'Bold': 700,
+        'ExtraBold': 800,
         'Black': 900
 );
 
 //Fonts path
 $fonts-dir: '/assets/fonts';
-$ibm-dir: '#{$fonts-dir}/ibmPlexSans';
+$mulish-dir: '#{$fonts-dir}/mulish';
