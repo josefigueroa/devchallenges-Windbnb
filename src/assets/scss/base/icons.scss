@@ -1,0 +1,18 @@
+@use '../abstratcs' as *;
+
+[class^="icon-"]{
+  &:before{
+    content: '';    
+    display: inline-block;
+    width: rem(24);
+    height: rem(24);
+  }
+ 
+}
+
+.icon-search{
+  &:before{    
+    background: url('../../img/search.svg') no-repeat;  
+    background-size: cover;
+  }
+}

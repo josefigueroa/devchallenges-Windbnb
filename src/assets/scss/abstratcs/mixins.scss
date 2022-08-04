@@ -87,3 +87,13 @@
   }
 }
 
+@mixin container($size: 1130){
+  width: 100%;
+  padding-left: $gap;
+  padding-right: $gap;
+  margin-right: auto;
+  margin-left: auto;
+  @include breakpoint('md'){
+    max-width: rem($size);
+  }
+}
