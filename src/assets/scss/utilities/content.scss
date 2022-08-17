@@ -1,1 +1,26 @@
 @use '../abstratcs' as *;
+
+.overlay{
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-black);
+  opacity: .8;
+  z-index: 1;
+}
+
+.title-section{
+  margin-bottom: rem(32);
+  display: flex;
+  justify-content: space-between;
+  &__title{
+    font-size: rem(24);
+    font-weight: var(--font-weight-bold);
+  }
+  &__text{
+    font-size: rem(14);
+    font-weight: var(--font-weight-medium);
+  }
+}

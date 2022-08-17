@@ -3,10 +3,12 @@
 .header{
   @include container(); 
   padding-top: rem(22);
+  margin-bottom: rem(37);
   @include breakpoint('md'){
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: rem(61);
   }
   &__img{
     margin-bottom: rem(39);
@@ -49,7 +51,7 @@
     display: none;
     position: fixed;
     padding-top: rem(18);
-    z-index: 1;
+    z-index: 2;
     width: 100%;
     left: 0;
     min-height: 50vh;
@@ -58,12 +60,18 @@
     &-wrapper{
       @include container();
     }
+    &--show{
+      display: block;
+    }
   }
   &__edit{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: rem(16);
+    button{
+      @include reset-button();
+    }
     &-icon{
       height: rem(24);
     }

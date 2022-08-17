@@ -2,7 +2,12 @@
 
 // Source: https://css-tricks.com/snippets/sass/px-to-em-functions/
 @function rem($pixels, $context: 16) {
-  @return (math.div($pixels, $context)) * 1rem;
+  @if not math.is-unitless($pixels) {
+    @error "Don't use units when using the rem() functions; only numbers.";  
+  }
+  
+  @return (math.div($pixels, $context)) * 1rem; 
+  
 }
 
 @function vw($pixels, $context: 1440) {

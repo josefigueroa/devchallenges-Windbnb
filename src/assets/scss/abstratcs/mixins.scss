@@ -8,41 +8,6 @@
     @content;
   }
 }
-@mixin background-slinding($background-color){
-  content: '';
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 0;
-  background-color: $background-color;
-  opacity: .8;
-  transition: all 1s ease;
-  z-index: 0;
-  animation: background-sliding-fade-in 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both, background-sliding-fade-out 2s ease-out both;
-}
-@mixin background-sliding-animation(){
-  @keyframes background-sliding-fade-in {
-    0% {
-      transform: scale(1);
-      opacity: 1;
-    }
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-  }
-  @keyframes background-sliding-fade-out {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-
-  }
-}
 
 //mixin grid system
 @mixin grid-flex($breakpoints: null) {
@@ -87,13 +52,13 @@
   }
 }
 
-@mixin container($size: 1130){
-  width: 100%;
-  padding-left: $gap;
-  padding-right: $gap;
-  margin-right: auto;
-  margin-left: auto;
-  @include breakpoint('md'){
-    max-width: rem($size);
-  }
+@mixin container($size: 1250){
+  margin: 0 auto;
+  width: min(100% - $gap * 2, rem($size));
+}
+
+@mixin reset-button(){
+  background: none;
+  border: 0;
+  padding: 0;
 }

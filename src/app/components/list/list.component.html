@@ -1,0 +1,32 @@
+<div class="container">
+
+  <div class="title-section">
+    <h2 class="title-section__title">Stays in </h2>
+    <span class="title-section__text">12+ stays</span>
+  </div>
+
+  <div class="card__grid">
+    <div class="card" *ngFor="let stay of staysArray">
+      <figure class="card__img">
+        <img [src]="stay.photo" width="2591" height="1638" alt="">
+      </figure>
+      <div class="card__description">
+        <span class="card__pill" *ngIf="stay.superHost">
+          Super host
+        </span>
+        <span class="card__muted">
+          {{stay.type}}
+          {{stay.beds}}
+        </span>
+        <span class="card__rating">
+          {{stay.rating}}
+        </span>
+      </div>
+      <h3 class="card__title">
+        {{stay.title}}
+      </h3>
+    </div>
+  </div>
+</div>
+
+

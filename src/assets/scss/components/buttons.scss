@@ -1,0 +1,17 @@
+@use '../abstratcs' as *;
+
+.btn{
+  background-color: transparent;
+  padding: rem(15) rem(25);
+  color: var(--color-white);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  border-radius: var(--border-radius);
+  font-family: var(--font-family-mulish);
+  @each $key, $val in $theme-color {
+    &--#{$key}{
+      background-color: $val;
+    }
+  }
+}
