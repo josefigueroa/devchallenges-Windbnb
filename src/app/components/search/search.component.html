@@ -1,0 +1,110 @@
+<header class="header">
+  <figure class="header__img">
+    <img src="../../../assets/img/logo.svg" alt="Windbnb logo company">
+  </figure>
+  <div class="header__menu-wrapper" (click)="showMenu()">
+    <ul class="header__list">
+      <li class="header__list-items header__list-items--active">{{staysIn !== 'Finland' ? staysIn : 'Location'}}</li>
+      <li class="header__list-items">Add guest</li>
+      <li class="header__list-items">
+        <svg class="header__list-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="SearchIcon"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="header__search">
+    <div class="header__search-wrapper">
+      <div class="header__edit">
+        <p class="header__text">Edit your search</p>    
+        <button type="button">
+          <svg class="header__edit-icon" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon" (click)="hideMenu()">
+            <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
+          </svg>  
+        </button>                
+      </div>
+      <form [formGroup]="searchForm"
+            (ngSubmit)="searchFormSubmit()"
+            autocomplete="off"
+            class="form form--inline">
+        <div class="form__floating">
+          <input type="text" 
+                 class="form__control"
+                 placeholder="Add location"
+                 id="formLocation"
+                 formControlName="city"
+                 (input)="search(searchForm.value.city)"
+                 (focus)="showLocationList()">
+          <label for="formLocation">Location</label>
+        </div>
+        <div class="form__floating">
+          <input type="text" 
+                 class="form__control"
+                 placeholder="Add guest"
+                 id="formGuest"
+                 formControlName="maxGuests"
+                 (focus)="showMaxGuest()">
+          <label for="formGuest">Guest</label>
+        </div>       
+        <div class="form__button-container">
+          <button type="submit" class="btn btn--primary" [disabled]="!searchForm.valid">Search</button>
+        </div>
+      </form>     
+      <div class="header__results">
+        <ul class="header__location-list" (click)="getAutocompleteValue($event)">
+          <li class="header__location-item" *ngFor="let item of stayLocation">
+            <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24"><path d="M12 11.75q.725 0 1.238-.512.512-.513.512-1.238t-.512-1.238Q12.725 8.25 12 8.25t-1.238.512q-.512.513-.512 1.238t.512 1.238q.513.512 1.238.512Zm0 9.7q-.175 0-.35-.05t-.325-.175Q7.775 18 6.013 15.25 4.25 12.5 4.25 10.2q0-3.625 2.338-5.788Q8.925 2.25 12 2.25q3.075 0 5.413 2.162Q19.75 6.575 19.75 10.2q0 2.3-1.762 5.05-1.763 2.75-5.313 5.975-.15.125-.325.175-.175.05-.35.05Z"/></svg>
+            <span class="header__location-text">{{item.city}}, {{item.country}}</span>
+          </li>
+        </ul>
+        <div class="header__guest" *ngIf="inputFocusMaxGuest">
+          <div class="header__guest-wrapper">
+            <span class="header__guest-title">Adults</span>
+            <p class="header__guest-text">Ages 13 or above</p>
+            <button class="header__guest-buttons" (click)="reduceAdults()">-</button>
+            <span class="header__guest-value">{{adults}}</span>
+            <button class="header__guest-buttons" (click)="incrementAdults()">+</button>    
+          </div>
+          <div class="header__guest-wrapper">
+            <span class="header__guest-title">Children</span>
+            <p class="header__guest-text">Ages 2-12</p>
+            <button class="header__guest-buttons" (click)="reduceChildren()">-</button>
+            <span class="header__guest-value">{{children}}</span>
+            <button class="header__guest-buttons" (click)="incrementChildren()">+</button>   
+          </div>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+</header>
+
+
+<div class="container">
+  <div class="title-section">
+    <h2 class="title-section__title">Stays in {{staysIn}}</h2>
+    <span class="title-section__text">{{stayLength}}+ stays</span>
+  </div>
+
+  <div class="card__grid">
+    <div class="card" *ngFor="let stay of stays">
+      <figure class="card__img">
+        <img [src]="stay.photo" width="2591" height="1638" alt="">
+      </figure>
+      <div class="card__description">
+        <span class="card__pill" *ngIf="stay.superHost">
+          Super host
+        </span>
+        <span class="card__muted">
+          {{stay.type}}
+          {{stay.beds|pointSeparator}}
+        </span>
+        <span class="card__rating">
+          <svg viewBox="0 0 15 15" height="15" width="15" xmlns="http://www.w3.org/2000/svg"><path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path></svg>{{stay.rating}}          
+        </span>
+      </div>
+      <h3 class="card__title">
+        {{stay.title}}
+      </h3>
+    </div>
+  </div>
+</div>

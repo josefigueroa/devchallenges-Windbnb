@@ -47,6 +47,15 @@
     font-size: rem(15);
     font-weight: var(--font-weight-medium);
   }
+  &__rating{
+    font-weight: var(--font-weight-medium);
+    font-size: rem(14);
+    svg{
+      vertical-align: text-top;
+      margin-right: rem(7);
+      fill: var(--color-primary);
+    }
+  }
   &__title{
     font-size: rem(16);
     font-weight: var(--font-weight-semibold);

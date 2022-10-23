@@ -6,8 +6,8 @@
   border-radius: rem(16);
   &--inline{
     @include breakpoint('md'){
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       align-items: center;
     }
   }
