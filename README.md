@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://jose-figueroa-windbnb.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/josefigueroa/devchallenges-Windbnb">
       Solution
     </a>
     <span> | </span>
@@ -37,7 +37,7 @@
 
 ## Overview
 
-![screenshot](https://user-images.githubusercontent.com/16707738/92399059-5716eb00-f132-11ea-8b14-bcacdc8ec97b.png)
+![screenshot](../devchallenges-Windbnb/src/assets/img/site.png)
 
 ### Built With
 
@@ -78,5 +78,4 @@ $ npm start
 
 ## Contact
 
-- Website [your-website.com](https://{your-web-site-link})
 - GitHub [@yjosefigueroa](https://{github.com/josefigueroa})
