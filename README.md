@@ -37,7 +37,7 @@
 
 ## Overview
 
-![screenshot](../devchallenges-Windbnb/src/assets/img/site.png)
+![screenshot](./devchallenges-Windbnb/src/assets/img/site.png)
 
 ### Built With
 
